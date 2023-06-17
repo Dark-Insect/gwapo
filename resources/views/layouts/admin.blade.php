@@ -16,7 +16,7 @@
   @yield('css')
     <script>
         window.APP = <?php echo json_encode([
-            'currency_symbol' => config('settings.currency_symbol')
+            'currency_symbol' => config('')
 ]) ?>
     </script>
 </head>

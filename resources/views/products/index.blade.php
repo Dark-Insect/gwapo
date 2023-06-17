@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
-@section('title', 'Product List')
-@section('content-header', 'Product List')
+@section('title', 'Voters Lists')
+@section('content-header', 'Voters Lists')
 @section('content-actions')
-<a href="{{route('products.create')}}" class="btn btn-primary">Create Product</a>
+<a href="{{route('products.create')}}" class="btn btn-primary">Add Voters Credentials</a>
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{ asset('plugins/sweetalert2/sweetalert2.min.css') }}">
@@ -15,14 +15,16 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Barcode</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Birthdate</th>
+                    <th>Purok/Street</th>
                     <th>Status</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
+                    <th>Barangay</th>
+                    <th>City/Town</th>
+                    <th>Father's Name</th>
+                    <th>Mother's Name</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -30,17 +32,19 @@
                 @foreach ($products as $product)
                 <tr>
                     <td>{{$product->id}}</td>
-                    <td>{{$product->name}}</td>
-                    <td><img src="{{ Storage::url($product->image) }}" alt="" width="100"></td>
-                    <td>{{$product->barcode}}</td>
-                    <td>{{$product->price}}</td>
-                    <td>{{$product->quantity}}</td>
+                    <td>{{$product->firname}}</td>
+                    <td>{{$product->midname}}</td>
+                    <td>{{$product->lasname}}</td>
+                    <td>{{$product->birthdate}}</td>
+                    <td>{{$product->street}}</td>
                     <td>
                         <span
                             class="right badge badge-{{ $product->status ? 'success' : 'danger' }}">{{$product->status ? 'Active' : 'Inactive'}}</span>
                     </td>
-                    <td>{{$product->created_at}}</td>
-                    <td>{{$product->updated_at}}</td>
+                    <td>{{$product->barangay}}</td>
+                    <td>{{$product->town}}</td>
+                    <td>{{$product->fname}}</td>
+                    <td>{{$product->mname}}</td>
                     <td>
                         <a href="{{ route('products.edit', $product) }}" class="btn btn-primary"><i
                                 class="fas fa-edit"></i></a>
@@ -72,7 +76,7 @@
 
                 swalWithBootstrapButtons.fire({
                 title: 'Are you sure?',
-                text: "Do you really want to delete this product?",
+                text: "Do you really want to delete this credentials?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Yes, delete it!',

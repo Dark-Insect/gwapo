@@ -25,13 +25,16 @@ class ProductUpdateRequest extends FormRequest
     {
         $product_id = $this->route('product')->id;
         return [
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image',
-            'barcode' => 'required|string|max:50|unique:products,barcode,' . $product_id,
-            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'quantity' => 'required|integer',
+            'firname' => 'required|string|max:255',
+            'midname' => 'required|string|max:255',
+            'lasname' => 'required|string|max:255',
+            'birthdate' => 'required',
+            'street' => 'required|string|max:255',
+            'barangay' => 'required|string|max:255',
             'status' => 'required|boolean',
+            'town' => 'required|string|max:255',
+            'fname' => 'required|string|max:255',
+            'mname' => 'required|string|max:255',
         ];
     }
 }

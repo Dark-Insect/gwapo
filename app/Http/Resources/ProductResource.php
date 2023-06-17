@@ -17,15 +17,17 @@ class ProductResource extends JsonResource
     {
         return [
             'id'=> $this->id,
-            'name'=> $this->name,
-            'description' => $this->description,
-            'image' => $this->image,
-            'barcode' => $this->barcode,
-            'price' => $this->price,
-            'quantity' => $this->quantity,
+            'firname'=> $this->firname,
+            'midname'=> $this->midname,
+            'lasname'=> $this->lasname,
+            'birthdate'=> $this->birthdate,
+            'street'=> $this->street,
+            'barangay'=> $this->barangay,
             'status' => $this->status,
-            'created_at' => $this->created_at,
-            'image_url' => Storage::url($this->image)
+            'town'=> $this->town,
+            'fname'=> $this->fname,
+            'mname'=> $this->mname,
+            
         ];
     }
 }

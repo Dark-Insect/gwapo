@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $products = new Product();
         if ($request->search) {
-            $products = $products->where('name', 'LIKE', "%{$request->search}%");
+            $products = $products->where('firname', 'LIKE', "%{$request->search}%");
         }
         $products = $products->latest()->paginate(10);
         if (request()->wantsJson()) {
@@ -54,19 +54,22 @@ class ProductController extends Controller
         }
 
         $product = Product::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'image' => $image_path,
-            'barcode' => $request->barcode,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'status' => $request->status
+            'firname' => $request->firname,
+            'midname' => $request->midname,
+            'lasname' => $request->lasname,
+            'birthdate' => $request->birthdate,
+            'street' => $request->street,
+            'barangay' => $request->barangay,
+            'status' => $request->status,
+            'town' => $request->town,
+            'fname' => $request->fname,
+            'mname' => $request->mname,
         ]);
 
         if (!$product) {
-            return redirect()->back()->with('error', 'Sorry, there a problem while creating product.');
+            return redirect()->back()->with('error', 'Sorry, there is a problem while adding credentials.');
         }
-        return redirect()->route('products.index')->with('success', 'Success, you product have been created.');
+        return redirect()->route('products.index')->with('success', 'Success, New Credentials being Added.');
     }
 
     /**
@@ -100,12 +103,17 @@ class ProductController extends Controller
      */
     public function update(ProductUpdateRequest $request, Product $product)
     {
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->barcode = $request->barcode;
-        $product->price = $request->price;
-        $product->quantity = $request->quantity;
+
+        $product->firname = $request->firname;
+        $product-> midname = $request->midname;
+        $product->lasname = $request->lasname;
+        $product->birthdate= $request->birthdate;
+        $product->street = $request->street;
+        $product->barangay = $request->barangay;
         $product->status = $request->status;
+        $product->town = $request->town;
+        $product->fname = $request->fname;
+        $product->mname = $request->mname;
 
         if ($request->hasFile('image')) {
             // Delete old image
@@ -119,9 +127,9 @@ class ProductController extends Controller
         }
 
         if (!$product->save()) {
-            return redirect()->back()->with('error', 'Sorry, there\'re a problem while updating product.');
+            return redirect()->back()->with('error', 'Sorry, there\'re a problem while updating credentials.');
         }
-        return redirect()->route('products.index')->with('success', 'Success, your product have been updated.');
+        return redirect()->route('products.index')->with('success', 'Success, credentials have been updated.');
     }
 
     /**

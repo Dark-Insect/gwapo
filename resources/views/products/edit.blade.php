@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit Product')
-@section('content-header', 'Edit Product')
+@section('title', 'Update Voters Credentials')
+@section('content-header', 'Update Voters Credentials')
 
 @section('content')
 
@@ -13,23 +13,10 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
-                    placeholder="Name" value="{{ old('name', $product->name) }}">
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-
-
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" class="form-control @error('description') is-invalid @enderror"
-                    id="description"
-                    placeholder="description">{{ old('description', $product->description) }}</textarea>
-                @error('description')
+                <label for="firname">First Name</label>
+                <input type="text" name="firname" class="form-control @error('firname') is-invalid @enderror" id="firname"
+                    placeholder="First Name" value="{{ old('firname', $product->firname) }}">
+                @error('firname')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -37,12 +24,10 @@
             </div>
 
             <div class="form-group">
-                <label for="image">Image</label>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="image" id="image">
-                    <label class="custom-file-label" for="image">Choose file</label>
-                </div>
-                @error('image')
+                <label for="midname">Middle Name</label>
+                <input type="text" name="midname" class="form-control @error('midname') is-invalid @enderror" id="midname"
+                    placeholder="Middle Name" value="{{ old('midname', $product->midname) }}">
+                @error('midname')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -50,10 +35,10 @@
             </div>
 
             <div class="form-group">
-                <label for="barcode">Barcode</label>
-                <input type="text" name="barcode" class="form-control @error('barcode') is-invalid @enderror"
-                    id="barcode" placeholder="barcode" value="{{ old('barcode', $product->barcode) }}">
-                @error('barcode')
+                <label for="lasname">Last Name</label>
+                <input type="text" name="lasname" class="form-control @error('lasname') is-invalid @enderror" id="lasname"
+                    placeholder="Last Name" value="{{ old('lasname', $product->lasname) }}">
+                @error('lasname')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -61,10 +46,10 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Price</label>
-                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price"
-                    placeholder="price" value="{{ old('price', $product->price) }}">
-                @error('price')
+                <label for="birthdate">Birthdate</label>
+                <input type="date" name="birthdate" class="form-control @error('birthdate') is-invalid @enderror" id="birthdate"
+                    placeholder="Birthdate" value="{{ old('birthdate', $product->birthdate) }}">
+                @error('birthdate')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -72,10 +57,54 @@
             </div>
 
             <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <input type="text" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
-                    id="quantity" placeholder="Quantity" value="{{ old('quantity', $product->quantity) }}">
-                @error('quantity')
+                <label for="street">Purok/Street</label>
+                <input type="text" name="street" class="form-control @error('street') is-invalid @enderror"
+                    id="street" placeholder="Purok/Street" value="{{ old('street', $product->street) }}">
+                @error('street')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="barangay">Barangay</label>
+                <input type="text" name="barangay" class="form-control @error('barangay') is-invalid @enderror" id="barangay"
+                    placeholder="Barangay" value="{{ old('barangay', $product->barangay) }}">
+                @error('barangay')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="town">City/Town</label>
+                <input type="text" name="town" class="form-control @error('town') is-invalid @enderror"
+                    id="town" placeholder="City/Town" value="{{ old('town', $product->town) }}">
+                @error('town')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="fname">Father's Name</label>
+                <input type="text" name="fname" class="form-control @error('fname') is-invalid @enderror" id="fname"
+                    placeholder="Father's Name" value="{{ old('fname', $product->fname) }}">
+                @error('fname')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="mname">Mother's Name</label>
+                <input type="text" name="mname" class="form-control @error('mname') is-invalid @enderror" id="mname"
+                    placeholder="Mother's Name" value="{{ old('mname', $product->mname) }}">
+                @error('mname')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

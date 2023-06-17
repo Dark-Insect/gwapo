@@ -13,9 +13,7 @@ class AddQuantityToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('quantity')->after('price')->default('1');
-        });
+       
     }
 
     /**
@@ -25,8 +23,6 @@ class AddQuantityToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('quantity');
-        });
+       
     }
 }
